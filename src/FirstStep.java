@@ -17,7 +17,7 @@ public class FirstStep {
         System.out.println(sum);
     }
     public static void main(String[] args){
-       // printStrings("hello", 5);
+        printStrings("hello", 5);
         simpleCalc();
     }
 
