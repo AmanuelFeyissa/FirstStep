@@ -8,9 +8,17 @@ public class FirstStep {
         }
         System.out.println(result);
     }
+    //Simple Test Calculator
+    public static void simpleCalc(){
+        int sum, var1, var2;
+        var1 = 7;
+        var2 = 43;
+        sum = var1 + var2;
+        System.out.println(sum);
+    }
     public static void main(String[] args){
-        printStrings("hello", 5);
-        
+       // printStrings("hello", 5);
+        simpleCalc();
     }
 
 }
