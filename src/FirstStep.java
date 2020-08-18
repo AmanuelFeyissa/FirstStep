@@ -1,3 +1,4 @@
+
 public class FirstStep {
     public static void printStrings(String alpha, int num) {
         String result = "";
