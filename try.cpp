@@ -1,46 +1,30 @@
-// Iterative C++ program to reverse an array
+//Checking whether the number is palindrome
+//ONLY FOR NUMBERS
 #include <iostream>
 using namespace std;
 
-/* Function to reverse arr[] from the beginning to end*/
-void revArray(int arr[], int begin, int end)
+int main()
 {
-	while (begin < end)
-	{
-		int tempo = arr[begin]; 
-		arr[begin] = arr[end];
-		arr[end] = tempo;
-		begin++;
-		end--;
-	} 
-}	 
+     int k, num, digitOf, rev = 0;
 
-/* function to print an array */
-void printArray(int arr[], int size)
-{
-for (int i = 0; i < size; i++)
-cout << arr[i] << " ";
+     cout << "Enter a positive number: ";
+     cin >> num;
 
-cout << endl;
-} 
+     k = num;
 
-/* Driver function to test above functions */
-int main() 
-{
-	int arr[] = {1, 2, 3, 4, 5, 6};
-	
-	int n = sizeof(arr) / sizeof(arr[0]); 
+     do
+     {
+         digitOf = num % 10;
+         rev = (rev * 10) + digitOf;
+         num = num / 10;
+     } while (num != 0);
 
-	// To print original array 
-	printArray(arr, n);
-	
-	// Function calling
-	revArray(arr, 0, n-1);
-	
-	cout << "Reversed array is" << endl;
-	
-	// To print the Reversed array
-	printArray(arr, n);
-	
-	return 0;
+     cout << " The reverse of the number is: " << rev << endl;
+
+     if (k == rev)
+         cout << " The number is a palindrome.";
+     else
+         cout << " The number is not a palindrome.";
+
+    return 0;
 }
