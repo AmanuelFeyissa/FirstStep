@@ -1,35 +1,48 @@
-//program to check whether two strings are anagrams of each other
-#include <iostream> 
-using namespace std; 
+//A PROGRAM THAT FINDS AND GROUPS ANAGRAMS TOGETHER FROM GIVEN LIST OF WORDS
+#include <iostream>
+#include <string>
+#include <vector>
+#include <unordered_map>
+#include <algorithm>
+using namespace std;
 
-/* function to check whether two strings are anagram of each other */
-bool areAnagram(string str1, string str2) 
-{ 
-	// Get lengths of both strings 
-	int m1 = str1.length(); 
-	int m2 = str2.length(); 
+// Function to group anagrams together from given list of words
+void groupAnagrams(string words[], int n)
+{
+	// construct a vector out of given words and sort each word
+	vector<string> list(words, words + n);
+	for (string &s: list)		
+		sort(s.begin(), s.end());
 
-	// If length of both strings is not same, then they can not be anagram 
-	if (m1 != m2)
-		return false; 
-	// Sort both the strings 
-	sort(str1.begin(), str1.end()); 
-	sort(str2.begin(), str2.end()); 
-	// Compare sorted strings 
-	for (int i = 0; i < m1; i ++)
-		if (str1[i] != str2[i]) 
-			return false; 
-	return true; 
-} 
+	// construct a map where key is each sorted word and value is list of indices where it is present
+	unordered_map<string, vector<int>> map;
+	for (int i = 0; i < n; i++)
+		map[list[i]].push_back(i);
 
-int main() 
-{ 
-	string str1 = "number"; 
-	string str2 = "anotherword"; 
-	if (areAnagram(str1, str2)) 
-		cout << "The two strings are anagram of each other"; 
-	else
-		cout << "The two strings are not anagram of each other"; 
+	// traverse the map and read indices for each sorted key. The anagrams are present in actual list at those indices
+	for (auto itr : map)
+	{
+		for (int index : itr.second)
+			cout << words[index] << " ";
+		cout << endl;
+	}
+}
 
-	return 0; 
-} 
+// Group anagrams together from given list of words
+int main()
+{
+	// list of words
+	string words[] =
+	{
+		"CARS", "REPAID", "DUES", "NOSE", "SIGNED", "LANE",
+		"PAIRED", "ARCS", "GRAB", "USED", "ONES", "BRAG",
+		"SUED", "LEAN", "SCAR", "DESIGN"
+	};
+
+	// size of list
+	int n = sizeof(words) / sizeof(words[0]);
+
+	groupAnagrams(words, n);
+
+	return 0;
+}
