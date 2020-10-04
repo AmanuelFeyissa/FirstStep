@@ -35,7 +35,7 @@ int main()
 	printArray(arr, n);
 	
 	// Function calling
-	rvereseArray(arr, 0, n-1);
+	revArray(arr, 0, n-1);
 	
 	cout << "Reversed array is" << endl;
 	
