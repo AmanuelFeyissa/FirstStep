@@ -24,8 +24,8 @@ bool areAnagram(string str1, string str2)
 
 int main() 
 { 
-	string str1 = "test"; 
-	string str2 = "ttew"; 
+	string str1 = "number"; 
+	string str2 = "anotherword"; 
 	if (areAnagram(str1, str2)) 
 		cout << "The two strings are anagram of each other"; 
 	else
