@@ -1,27 +1,35 @@
-//a number guessing game from 1 - 100
-#include <cstdlib>
-#include <time.h>
-#include <iostream>
+//program to check whether two strings are anagrams of each other
+#include <iostream> 
+using namespace std; 
 
-using namespace std;
+/* function to check whether two strings are anagram of each other */
+bool areAnagram(string str1, string str2) 
+{ 
+	// Get lengths of both strings 
+	int m1 = str1.length(); 
+	int m2 = str2.length(); 
 
-int main() {
-      srand(time(0));
-      int num;
-      num = rand() % 100 + 1;
-      int guess;
-      do {
-            cout << "Enter a number of your choice between 1-100: ";
-            cin >> guess;
-            // with this line ↓ you could see what happens
-            cout << "Your number is " << guess << " and the hidden number is " << num << endl;
-            if (guess < num)
-                  cout << "Sorry, try again, it's smaller than the hidden number!" << endl;
-            else if (guess > num)
-                  cout << "Sorry, try again, it's bigger than the hidden number!" << endl;
-            else
-                  cout << "The number is correct! Congratulations!" << endl;
-      } while (guess != num);
-      system("PAUSE");
-      return 0;
-}
+	// If length of both strings is not same, then they can not be anagram 
+	if (m1 != m2)
+		return false; 
+	// Sort both the strings 
+	sort(str1.begin(), str1.end()); 
+	sort(str2.begin(), str2.end()); 
+	// Compare sorted strings 
+	for (int i = 0; i < m1; i ++)
+		if (str1[i] != str2[i]) 
+			return false; 
+	return true; 
+} 
+
+int main() 
+{ 
+	string str1 = "test"; 
+	string str2 = "ttew"; 
+	if (areAnagram(str1, str2)) 
+		cout << "The two strings are anagram of each other"; 
+	else
+		cout << "The two strings are not anagram of each other"; 
+
+	return 0; 
+} 
