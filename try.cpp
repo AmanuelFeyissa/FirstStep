@@ -5,12 +5,12 @@ using namespace std;
 /* Function to reverse arr[] from the beginning to end*/
 void revArray(int arr[], int begin, int end)
 {
-	while (start < end)
+	while (begin < end)
 	{
 		int tempo = arr[begin]; 
-		arr[start] = arr[end];
+		arr[begin] = arr[end];
 		arr[end] = tempo;
-		start++;
+		begin++;
 		end--;
 	} 
 }	 
